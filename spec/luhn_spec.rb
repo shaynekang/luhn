@@ -1,6 +1,20 @@
+class CreditCard
+  def valid?
+    true
+  end
+end
+
+describe CreditCard do
+  describe "#valid?" do
+    it "should validate credit card number" do
+      CreditCard.new(0).should be_valid
+    end
+  end
+end
+
 class Fixnum
   def luhn?
-    true
+    CreditCard.new(self).valid?
   end
 end
 
