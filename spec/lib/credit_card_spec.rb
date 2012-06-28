@@ -53,8 +53,8 @@ describe CreditCard do
 
   describe "#calculate_check_digit" do
     it "should return calculated check digit" do
-      subject.calculate_check_digit(46).should == 4
-      subject.calculate_check_digit(50).should == 0
+      subject.calculate_check_digit(46).should == (50 - 46) % 10
+      subject.calculate_check_digit(50).should == (60 - 50) % 10
     end
   end
 end
