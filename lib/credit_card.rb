@@ -25,7 +25,7 @@ class CreditCard
     summed = sum_digits(doubled)
     checked = calculate_check_digit(summed)
 
-    checked == options.check_digit
+    checked == check_digit
   end
 
   def double_every_second_digit(number)
