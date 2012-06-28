@@ -5,4 +5,5 @@ group :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'cane'
+  gem 'simplecov', :require => false
 end

@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'ruby_extensions/fixnum'
 
 describe Fixnum do
