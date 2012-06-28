@@ -7,11 +7,11 @@ describe CreditCard do
   end
 
   describe "#==" do
-    it "should be equal credit card if number is identical" do
+    it "should be equal if number is identical" do
       credit_card(37).should == credit_card(37)
     end
 
-    it "should be equal credit card if number and check_digit are identical" do
+    it "should be equal if number and check_digit are identical" do
       credit_card(37, check_digit: 3).should == credit_card(37, check_digit: 3)
     end
   end
@@ -46,7 +46,7 @@ describe CreditCard do
   end
 
   describe "#sum_digits" do
-    it "should sum of every digit" do
+    it "should sum every digits" do
       subject.sum_digits(374).should == 3 + 7 + 4
     end
   end
