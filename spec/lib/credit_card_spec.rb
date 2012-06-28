@@ -23,6 +23,12 @@ describe CreditCard do
     end
   end
 
+  describe "#sum_of_double_every_second_digit" do
+    it "should sum double of of every second digit" do
+      CreditCard.new(374).sum_of_double_every_second_digit.should == 6 + 7 + 8
+    end
+  end
+
   describe "#valid?" do
     it "should validate credit card number" do
       CreditCard.new(0).should be_valid
