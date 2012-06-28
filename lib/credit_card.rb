@@ -2,7 +2,7 @@ require 'ruby_extensions/array'
 require 'ostruct'
 
 class CreditCard
-  attr_reader :card_number
+  attr_reader :card_number, :options
 
   DEFAULT_OPTIONS = {check_digit: 0}
   def initialize(card_number, opts={})
@@ -15,7 +15,7 @@ class CreditCard
   end
 
   def valid?
-    check_digit(sum_of_double_every_second_digit) == @options.check_digit
+    check_digit(sum_of_double_every_second_digit) == options.check_digit
   end
 
   def double_every_second_digit
