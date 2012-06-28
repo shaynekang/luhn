@@ -16,7 +16,7 @@ class CreditCard
   end
 
   def valid?
-    check_digit(sum_of_double_every_second_digit) == options.check_digit
+    check_digit(sum_of_digit(double_every_second_digit)) == options.check_digit
   end
 
   def double_every_second_digit
@@ -34,7 +34,7 @@ class CreditCard
     (10 - (number % 10)) % 10
   end
 
-  def sum_of_double_every_second_digit
-    double_every_second_digit.to_digits.inject(:+)
+  def sum_of_digit(number)
+    number.to_digits.inject(:+)
   end
 end

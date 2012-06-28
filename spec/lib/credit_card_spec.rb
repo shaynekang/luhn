@@ -25,9 +25,9 @@ describe CreditCard do
     end
   end
 
-  describe "#sum_of_double_every_second_digit" do
-    it "should sum double of of every second digit" do
-      credit_card(374).sum_of_double_every_second_digit.should == 3 + 1 + 4 + 4
+  describe "#sum_of_digit" do
+    it "should sum of every digit" do
+      credit_card(0).sum_of_digit(374).should == 3 + 7 + 4
     end
   end
 
