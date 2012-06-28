@@ -34,26 +34,28 @@ describe CreditCard do
     end
   end
 
+  subject { credit_card(0) }
+
   describe "#double_every_second_digit" do
     it "should double the value of every second digit" do
-      credit_card(0).double_every_second_digit(334).should == 364
+      subject.double_every_second_digit(334).should == 364
     end
 
     it "should treat the digits independently if a product has two digits" do
-      credit_card(0).double_every_second_digit(8876).should == 168146
+      subject.double_every_second_digit(8876).should == 168146
     end
   end
 
   describe "#sum_digits" do
     it "should sum of every digit" do
-      credit_card(0).sum_digits(374).should == 3 + 7 + 4
+      subject.sum_digits(374).should == 3 + 7 + 4
     end
   end
 
   describe "#calculate_check_digit" do
     it "should return calculated check digit" do
-      credit_card(0).calculate_check_digit(46).should == 4
-      credit_card(0).calculate_check_digit(50).should == 0
+      subject.calculate_check_digit(46).should == 4
+      subject.calculate_check_digit(50).should == 0
     end
   end
 end
