@@ -1,5 +1,6 @@
-require 'ruby_extensions/array'
 require 'ostruct'
+require 'ruby_extensions/array'
+require 'ruby_extensions/fixnum'
 
 class CreditCard
   attr_reader :card_number, :options
@@ -19,7 +20,7 @@ class CreditCard
   end
 
   def double_every_second_digit
-    reversed = to_digits.reverse
+    reversed = card_number.to_digits.reverse
 
     odd = reversed.odd_values
     even = reversed.even_values
@@ -34,10 +35,6 @@ class CreditCard
   end
 
   def sum_of_double_every_second_digit
-    to_digits(double_every_second_digit).inject(:+)
-  end
-
-  def to_digits(number = card_number)
-    number.to_s.chars.to_a.map(&:to_i)
+    double_every_second_digit.to_digits.inject(:+)
   end
 end
