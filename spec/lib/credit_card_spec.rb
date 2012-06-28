@@ -8,7 +8,7 @@ describe CreditCard do
   end
 
   describe "#digits" do
-    it "should divide digits to array" do
+    it "should divide number to digits array" do
       CreditCard.new(373).digits.should == [3, 7, 3]
     end
   end
