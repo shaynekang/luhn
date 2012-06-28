@@ -1,11 +1,13 @@
 require 'ruby_extensions/array'
+require 'ostruct'
 
 class CreditCard
   attr_reader :number
 
+  DEFAULT_OPTIONS = {check_digit: 0}
   def initialize(number, opts={})
     @number = number
-    @opts = {check_digit: 0}.merge(opts)
+    @options = OpenStruct.new(DEFAULT_OPTIONS.merge(opts))
   end
 
   def ==(another)
@@ -13,7 +15,7 @@ class CreditCard
   end
 
   def valid?
-    check_digit(sum_of_double_every_second_digit) == @opts[:check_digit]
+    check_digit(sum_of_double_every_second_digit) == @options.check_digit
   end
 
   def double_every_second_digit
