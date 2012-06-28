@@ -16,11 +16,11 @@ class CreditCard
   end
 
   def valid?
-    check_digit(sum_of_digit(double_every_second_digit)) == options.check_digit
+    check_digit(sum_of_digit(double_every_second_digit(card_number))) == options.check_digit
   end
 
-  def double_every_second_digit
-    reversed = card_number.to_digits.reverse
+  def double_every_second_digit(number)
+    reversed = number.to_digits.reverse
 
     odd = reversed.odd_values
     even = reversed.even_values

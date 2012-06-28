@@ -17,11 +17,11 @@ describe CreditCard do
 
   describe "#double_every_second_digit" do
     it "should double the value of every second digit" do
-      credit_card(334).double_every_second_digit.should == 364
+      credit_card(0).double_every_second_digit(334).should == 364
     end
 
     it "should treat the digits independently if a product has two digits" do
-      credit_card(8876).double_every_second_digit.should == 168146
+      credit_card(0).double_every_second_digit(8876).should == 168146
     end
   end
 
