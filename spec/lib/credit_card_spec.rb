@@ -31,6 +31,13 @@ describe CreditCard do
     end
   end
 
+  describe "#check_digit" do
+    it "should return calculated check digit" do
+      credit_card(0).check_digit(46).should == 4
+      credit_card(0).check_digit(50).should == 0
+    end
+  end
+
   describe "#valid?" do
     it "should validate credit card number" do
       credit_card(0).should be_valid
@@ -39,13 +46,6 @@ describe CreditCard do
 
     it "should validate with custom check digit" do
       credit_card(79927499723, check_digit: 4).should be_valid
-    end
-  end
-
-  describe "#check_digit" do
-    it "should return calculated check digit" do
-      credit_card(0).check_digit(46).should == 4
-      credit_card(0).check_digit(50).should == 0
     end
   end
 end

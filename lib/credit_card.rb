@@ -15,10 +15,6 @@ class CreditCard
     card_number == another.card_number and options.check_digit == another.options.check_digit
   end
 
-  def valid?
-    check_digit(sum_of_digit(double_every_second_digit(card_number))) == options.check_digit
-  end
-
   def double_every_second_digit(number)
     reversed = number.to_digits.reverse
 
@@ -30,11 +26,15 @@ class CreditCard
     doubled.map(&:to_s).join.to_i
   end
 
+  def sum_of_digit(number)
+    number.to_digits.inject(:+)
+  end
+
   def check_digit(number)
     (10 - (number % 10)) % 10
   end
 
-  def sum_of_digit(number)
-    number.to_digits.inject(:+)
+  def valid?
+    check_digit(sum_of_digit(double_every_second_digit(card_number))) == options.check_digit
   end
 end
