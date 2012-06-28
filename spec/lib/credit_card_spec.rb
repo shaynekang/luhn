@@ -36,6 +36,7 @@ describe CreditCard do
   describe "#valid?" do
     it "should validate credit card number" do
       CreditCard.new(0).should be_valid
+      CreditCard.new(79927398713).should be_valid
     end
   end
 end

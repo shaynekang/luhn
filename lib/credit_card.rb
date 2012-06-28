@@ -12,7 +12,7 @@ class CreditCard
   end
 
   def valid?
-    true
+    sum_of_double_every_second_digit % 10 == 0
   end
 
   def double_every_second_digit
