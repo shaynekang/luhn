@@ -12,14 +12,14 @@ describe CreditCard do
     end
 
     it "should be equal if number and check_digit are identical" do
-      credit_card(37, check_digit: 3).should == credit_card(37, check_digit: 3)
+      credit_card(37, :check_digit => 3).should == credit_card(37, :check_digit => 3)
     end
   end
 
   describe "#check_digit" do
     it "should return check digit of credit card" do
       credit_card(12345).check_digit.should == 0
-      credit_card(12345, check_digit: 5).check_digit.should == 5
+      credit_card(12345, :check_digit => 5).check_digit.should == 5
     end
   end
 
@@ -29,7 +29,7 @@ describe CreditCard do
     end
 
     it "should validate with custom check digit" do
-      credit_card(79927499723, check_digit: 4).should be_valid
+      credit_card(79927499723, :check_digit => 4).should be_valid
     end
   end
 

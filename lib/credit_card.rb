@@ -5,7 +5,7 @@ require 'ruby_extensions/fixnum'
 class CreditCard
   attr_reader :card_number, :options
 
-  DEFAULT_OPTIONS = {check_digit: 0}
+  DEFAULT_OPTIONS = {:check_digit => 0}
   def initialize(card_number, opts={})
     @card_number = card_number
     @options = OpenStruct.new(DEFAULT_OPTIONS.merge(opts))
