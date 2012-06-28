@@ -12,7 +12,10 @@ class CreditCard
   end
 
   def ==(another)
-    card_number == another.card_number and options.check_digit == another.options.check_digit
+    equal_card_number = (card_number == another.card_number)
+    equal_check_digit = (options.check_digit == another.options.check_digit)
+
+    equal_card_number and equal_check_digit
   end
 
   def double_every_second_digit(number)
@@ -35,6 +38,10 @@ class CreditCard
   end
 
   def valid?
-    check_digit(sum_of_digit(double_every_second_digit(card_number))) == options.check_digit
+    doubled = double_every_second_digit(card_number)
+    summed = sum_of_digit(doubled)
+    checked = check_digit(summed)
+
+    checked == options.check_digit
   end
 end
