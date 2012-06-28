@@ -20,10 +20,10 @@ class CreditCard
   end
 
   def sum_of_double_every_second_digit
-    double_every_second_digit.to_s.chars.to_a.map(&:to_i).inject(:+)
+    digits(double_every_second_digit).inject(:+)
   end
 
-  def digits
-    @number.to_s.chars.to_a.map(&:to_i)
+  def digits(number=@number)
+    number.to_s.chars.to_a.map(&:to_i)
   end
 end
