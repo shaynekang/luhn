@@ -12,4 +12,14 @@ class CreditCard
   def valid?
     true
   end
+
+  def double_every_second_digit
+    doubled = []
+    digits.reverse.each_slice(2){|digits| doubled << [digits[0] * 2, digits[1]]}
+    doubled.flatten.reverse.delete_if(&:nil?).map(&:to_s).join.to_i
+  end
+
+  def digits
+    @number.to_s.chars.to_a.map(&:to_i)
+  end
 end
