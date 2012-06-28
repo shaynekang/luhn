@@ -12,7 +12,9 @@ describe CreditCard do
     end
 
     it "should be equal if number and check_digit are identical" do
-      credit_card(37, :check_digit => 3).should == credit_card(37, :check_digit => 3)
+      left  = credit_card(37, :check_digit => 3)
+      right = credit_card(37, :check_digit => 3)
+      left.should == right
     end
   end
 
