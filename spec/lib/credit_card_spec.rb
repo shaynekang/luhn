@@ -19,17 +19,17 @@ describe CreditCard do
 
   describe "#double_every_second_digit" do
     it "should double the value of every second digit" do
-      CreditCard.new(374).double_every_second_digit.should == 678
+      CreditCard.new(334).double_every_second_digit.should == 364
     end
 
     it "should treat the digits independently if a product has two digits" do
-      CreditCard.new(8876).double_every_second_digit.should == 816712
+      CreditCard.new(8876).double_every_second_digit.should == 168146
     end
   end
 
   describe "#sum_of_double_every_second_digit" do
     it "should sum double of of every second digit" do
-      CreditCard.new(374).sum_of_double_every_second_digit.should == 6 + 7 + 8
+      CreditCard.new(374).sum_of_double_every_second_digit.should == 3 + 1 + 4 + 4
     end
   end
 

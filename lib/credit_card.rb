@@ -1,3 +1,5 @@
+require 'ruby_extensions/array'
+
 class CreditCard
   attr_reader :number
 
@@ -14,9 +16,14 @@ class CreditCard
   end
 
   def double_every_second_digit
-    doubled = []
-    to_digits.reverse.each_slice(2){|digits| doubled << [digits[0] * 2, digits[1]]}
-    doubled.flatten.reverse.delete_if(&:nil?).map(&:to_s).join.to_i
+    reversed = to_digits.reverse
+
+    odd = reversed.odd_values
+    even = reversed.even_values
+    odd = odd.map{|digit| digit * 2}
+
+    doubled = even.interleave(odd).reverse
+    doubled.map(&:to_s).join.to_i
   end
 
   def sum_of_double_every_second_digit
