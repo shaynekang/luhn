@@ -13,7 +13,9 @@ class CreditCard
 
   COMPARISON_ATTRIBUTE = [:card_number, :check_digit]
   def ==(another)
-    COMPARISON_ATTRIBUTE.all?{|attr| self.send(attr) == another.send(attr)}
+    COMPARISON_ATTRIBUTE.all? do |attribute|
+      self.send(attribute) == another.send(attribute)
+    end
   end
 
   def check_digit
