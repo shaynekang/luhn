@@ -7,9 +7,11 @@ A simple ruby solution about luhn algorithm. see [Naver Dictionary](http://terms
 ### Set Up
 
 You need to install bundler:
+
     $ gem install bundler
 
 and install gems of this project:
+
     $ bundle install
 
 
