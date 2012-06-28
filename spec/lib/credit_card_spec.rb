@@ -26,16 +26,16 @@ describe CreditCard do
     end
   end
 
-  describe "#sum_of_digit" do
+  describe "#sum_digits" do
     it "should sum of every digit" do
-      credit_card(0).sum_of_digit(374).should == 3 + 7 + 4
+      credit_card(0).sum_digits(374).should == 3 + 7 + 4
     end
   end
 
-  describe "#check_digit" do
+  describe "#calculate_check_digit" do
     it "should return calculated check digit" do
-      credit_card(0).check_digit(46).should == 4
-      credit_card(0).check_digit(50).should == 0
+      credit_card(0).calculate_check_digit(46).should == 4
+      credit_card(0).calculate_check_digit(50).should == 0
     end
   end
 

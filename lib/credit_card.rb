@@ -29,18 +29,18 @@ class CreditCard
     doubled.map(&:to_s).join.to_i
   end
 
-  def sum_of_digit(number)
+  def sum_digits(number)
     number.to_digits.inject(:+)
   end
 
-  def check_digit(number)
+  def calculate_check_digit(number)
     (10 - (number % 10)) % 10
   end
 
   def valid?
     doubled = double_every_second_digit(card_number)
-    summed = sum_of_digit(doubled)
-    checked = check_digit(summed)
+    summed = sum_digits(doubled)
+    checked = calculate_check_digit(summed)
 
     checked == options.check_digit
   end
