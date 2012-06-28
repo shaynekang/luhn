@@ -12,7 +12,7 @@ class CreditCard
   end
 
   def ==(another)
-    card_number == another.card_number
+    card_number == another.card_number and options.check_digit == another.options.check_digit
   end
 
   def valid?

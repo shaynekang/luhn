@@ -2,12 +2,16 @@ require 'credit_card'
 
 describe CreditCard do
   def credit_card(card_number, opts={})
-    @credit_card ||= CreditCard.new(card_number, opts)
+    CreditCard.new(card_number, opts)
   end
 
   describe "#==" do
     it "should be equal credit card if number is identical" do
       credit_card(37).should == credit_card(37)
+    end
+
+    it "should be equal credit card if number and check_digit are identical" do
+      credit_card(37, check_digit: 3).should == credit_card(37, check_digit: 3)
     end
   end
 
