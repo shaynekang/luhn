@@ -37,11 +37,11 @@ describe CreditCard do
 
   describe "#double_every_second_digit" do
     it "should double the value of every second digit" do
-      subject.double_every_second_digit(334).should == 364
+      subject.double_every_second_digit(334).should == "3#{3*2}4".to_i
     end
 
     it "should treat the digits independently if a product has two digits" do
-      subject.double_every_second_digit(8876).should == 168146
+      subject.double_every_second_digit(8876).should == "#{8*2}8#{7*2}6".to_i
     end
   end
 
