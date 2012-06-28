@@ -23,6 +23,17 @@ describe CreditCard do
     end
   end
 
+  describe "#valid?" do
+    it "should validate credit card number" do
+      credit_card(0).should be_valid
+      credit_card(79927398713).should be_valid
+    end
+
+    it "should validate with custom check digit" do
+      credit_card(79927499723, check_digit: 4).should be_valid
+    end
+  end
+
   describe "#double_every_second_digit" do
     it "should double the value of every second digit" do
       credit_card(0).double_every_second_digit(334).should == 364
@@ -43,17 +54,6 @@ describe CreditCard do
     it "should return calculated check digit" do
       credit_card(0).calculate_check_digit(46).should == 4
       credit_card(0).calculate_check_digit(50).should == 0
-    end
-  end
-
-  describe "#valid?" do
-    it "should validate credit card number" do
-      credit_card(0).should be_valid
-      credit_card(79927398713).should be_valid
-    end
-
-    it "should validate with custom check digit" do
-      credit_card(79927499723, check_digit: 4).should be_valid
     end
   end
 end

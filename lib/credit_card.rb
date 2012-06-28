@@ -20,6 +20,14 @@ class CreditCard
     options.check_digit
   end
 
+  def valid?
+    doubled = double_every_second_digit(card_number)
+    summed = sum_digits(doubled)
+    checked = calculate_check_digit(summed)
+
+    checked == options.check_digit
+  end
+
   def double_every_second_digit(number)
     reversed = number.to_digits.reverse
 
@@ -37,13 +45,5 @@ class CreditCard
 
   def calculate_check_digit(number)
     (10 - (number % 10)) % 10
-  end
-
-  def valid?
-    doubled = double_every_second_digit(card_number)
-    summed = sum_digits(doubled)
-    checked = calculate_check_digit(summed)
-
-    checked == options.check_digit
   end
 end
