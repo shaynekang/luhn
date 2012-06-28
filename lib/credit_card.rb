@@ -11,11 +11,13 @@ class CreditCard
     @options = OpenStruct.new(DEFAULT_OPTIONS.merge(opts))
   end
 
+  COMPARISON_ATTRIBUTE = [:card_number, :check_digit]
   def ==(another)
-    equal_card_number = (card_number == another.card_number)
-    equal_check_digit = (options.check_digit == another.options.check_digit)
+    COMPARISON_ATTRIBUTE.all?{|attr| self.send(attr) == another.send(attr)}
+  end
 
-    equal_card_number and equal_check_digit
+  def check_digit
+    options.check_digit
   end
 
   def double_every_second_digit(number)

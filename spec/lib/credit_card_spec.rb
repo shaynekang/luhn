@@ -16,6 +16,13 @@ describe CreditCard do
     end
   end
 
+  describe "#check_digit" do
+    it "should return check digit of credit card" do
+      credit_card(0).check_digit.should == 0
+      credit_card(0, check_digit: 5).check_digit.should == 5
+    end
+  end
+
   describe "#double_every_second_digit" do
     it "should double the value of every second digit" do
       credit_card(0).double_every_second_digit(334).should == 364
