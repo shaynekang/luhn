@@ -3,8 +3,9 @@ require 'ruby_extensions/array'
 class CreditCard
   attr_reader :number
 
-  def initialize(number)
+  def initialize(number, opts={})
     @number = number
+    @opts = {check_digit: 0}.merge(opts)
   end
 
   def ==(another)
@@ -12,7 +13,7 @@ class CreditCard
   end
 
   def valid?
-    sum_of_double_every_second_digit % 10 == 0
+    check_digit(sum_of_double_every_second_digit) == @opts[:check_digit]
   end
 
   def double_every_second_digit
@@ -24,6 +25,10 @@ class CreditCard
 
     doubled = even.interleave(odd).reverse
     doubled.map(&:to_s).join.to_i
+  end
+
+  def check_digit(number)
+    (10 - (number % 10)) % 10
   end
 
   def sum_of_double_every_second_digit

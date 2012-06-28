@@ -38,5 +38,17 @@ describe CreditCard do
       CreditCard.new(0).should be_valid
       CreditCard.new(79927398713).should be_valid
     end
+
+    it "should validate with custom check digit" do
+      CreditCard.new(79927499723, check_digit: 4).should be_valid
+    end
+  end
+
+  describe "#check_digit" do
+    it "should return calculated check digit" do
+      CreditCard.new(0).check_digit(46).should == 4
+      CreditCard.new(0).check_digit(50).should == 0
+    end
   end
 end
+
