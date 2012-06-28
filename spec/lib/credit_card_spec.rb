@@ -7,13 +7,13 @@ describe CreditCard do
     end
   end
 
-  describe "#digits" do
+  describe "#to_digits" do
     it "should divide number to digits array" do
-      CreditCard.new(373).digits.should == [3, 7, 3]
+      CreditCard.new(373).to_digits.should == [3, 7, 3]
     end
 
     it "should divide custom number to digits array" do
-      CreditCard.new(1).digits(1124).should == [1, 1, 2, 4]
+      CreditCard.new(1).to_digits(1124).should == [1, 1, 2, 4]
     end
   end
 
