@@ -18,14 +18,13 @@ describe CreditCard do
 
   describe "#check_digit" do
     it "should return check digit of credit card" do
-      credit_card(0).check_digit.should == 0
-      credit_card(0, check_digit: 5).check_digit.should == 5
+      credit_card(12345).check_digit.should == 0
+      credit_card(12345, check_digit: 5).check_digit.should == 5
     end
   end
 
   describe "#valid?" do
     it "should validate credit card number" do
-      credit_card(0).should be_valid
       credit_card(79927398713).should be_valid
     end
 
